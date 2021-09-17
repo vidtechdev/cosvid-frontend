@@ -12,7 +12,7 @@ const ALL_VIDEOS = gql`
   }
 `;
 
-export default function WorkOptionVideosPage({data, error, loading}) {
+export default function WorkOptionVideosPage() {
   const { data, error, loading } = useQuery(ALL_VIDEOS);
   if (loading) return <p>Loading data...</p>;
   if (error) return <p> Error: {error.message}</p>;
