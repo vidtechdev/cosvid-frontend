@@ -53,7 +53,7 @@ export default function SingleVideoPage({ query }) {
         <strong>Description:</strong> {occupation.description}
       </p>
       <VideoComponent videocode={occupation.videocode} />
-      <Transcript videocode={occupation.videocode} />
+      {/* <Transcript videocode={occupation.videocode} /> */}
     </>
   );
 }
