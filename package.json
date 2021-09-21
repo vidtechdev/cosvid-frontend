@@ -11,8 +11,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "BE",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.8",
     "@apollo/link-error": "^2.0.0-beta.3",

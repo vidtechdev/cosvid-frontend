@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import VideoComponent from '../../../components/VideoComponent';
-import Transcript from '../../../components/videoplayer/transcript-REST';
+// import Transcript from '../../../components/videoplayer/transcript-REST';
 import PageHeadingStyles from '../../../components/styles/PageHeadingStyles';
 import { server } from '../../../config';
 
