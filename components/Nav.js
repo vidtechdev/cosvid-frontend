@@ -4,8 +4,8 @@ export default function Nav() {
   return (
     <>
       <Link href="/">Video Library</Link>
-      <Link href="/career-videos">Career Videos (REST)</Link>
-      <Link href="/career/videos">Career Videos (GraphQL)</Link>
+      {/* <Link href="/career-videos">Career Videos (REST)</Link> */}
+      <Link href="/career/videos">Career Videos</Link>
       <Link href="/spanish-videos">Career Videos in Spanish</Link>
       <Link href="/career-clusters">Career Cluster / Industry Videos</Link>
       <Link href="/skill-and-ability/videos">Skill and Ability Videos</Link>

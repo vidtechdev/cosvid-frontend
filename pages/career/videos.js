@@ -18,6 +18,16 @@ export default function CareerVideosPage() {
   if (loading) return <p>Data is loading...</p>;
   if (error) return <DisplayError error={error} />;
 
+  // Get Clusters list in ASC order by ClusterCode
+  let clusters = [];
+  data.clusters.forEach((cluster) => {
+    clusters.push({ clusterCode: cluster.clusterCode, title: cluster.title });
+  });
+
+  clusters = clusters.sort(function (a, b) {
+    return a.clusterCode - b.clusterCode;
+  });
+
   return (
     <>
       <PageHeadingStyles>
@@ -29,13 +39,9 @@ export default function CareerVideosPage() {
         Videos include career details such as tasks, work settings, education
         needed, and more.
       </p>
-      {data.clusters.map((cluster, i) =>
-        cluster.clusterCode === '0000' || cluster.clusterCode === '00' ? (
-          console.log(cluster.clusterCode)
-        ) : (
-          <ClusterVideoGroupListGQL key={i} clusterCode={cluster.clusterCode} />
-        )
-      )}
+      {clusters.map((cluster, i) => (
+        <ClusterVideoGroupListGQL key={i} clusterCode={cluster.clusterCode} />
+      ))}
       <div className="nav-header">Video Library</div>
     </>
   );

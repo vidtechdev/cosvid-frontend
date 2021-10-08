@@ -91,12 +91,20 @@ const PageContentStyles = styled.div`
 `;
 
 const SocialBlockStyles = styled.div`
+  /* display: grid; */
+  /* grid-template-columns: auto auto; */
   /* grid-template-rows: minmax(auto, 1fr); */
   padding: 10px 0px;
   font-size: 1.3rem;
   font-weight: bold;
   border-bottom: var(--grayblue) 1px solid;
   text-align: right;
+  a {
+    display: grid;
+    grid-column: auto;
+    font-size: 0.85rem;
+    text-align: left;
+  }
 `;
 
 export default function Page({ children }) {
@@ -109,7 +117,16 @@ export default function Page({ children }) {
           <Nav />
         </LeftNavStyles>
         <PageContentStyles>
-          <SocialBlockStyles>Social Icons Block</SocialBlockStyles>
+          <SocialBlockStyles>
+            {/* <a
+              href="https://www.careeronestop.org/videos"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Compare to CareerOneStop.org/Videos
+            </a> */}
+            Social Icons Block
+          </SocialBlockStyles>
           {children}
         </PageContentStyles>
       </PageStyles>

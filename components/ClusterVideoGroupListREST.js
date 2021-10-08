@@ -47,12 +47,9 @@ export default function ClusterVideoGroupListREST({ clusterCode }) {
     return <p>REST Cluster Data is loading...</p>;
   }
 
-  // console.log('clusterData: ', clusterData);
   const { title, occupations } = clusterData;
-  // console.log('title: ', title);
-  // console.log('occupations: ', occupations);
-
   const accordionText = active ? 'Close' : 'Open';
+
   // const faCaret = active
   //   ? '{font-size: 48px; color: #16a085; transform: translateY(-25%);}'
   //   : '{font-size: 48px; color: #16a085;}';
@@ -100,7 +97,6 @@ export default function ClusterVideoGroupListREST({ clusterCode }) {
                       clusterCode
                     );
                   } else {
-                    // console.log(occ);
                     return (
                       <RESTOccupationTITLE code={occ} key={`${i}-${occ}`} />
                     );

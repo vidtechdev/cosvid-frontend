@@ -41,6 +41,7 @@ export default function RESTOccupationTITLE({ code, key }) {
   if (!isLoaded) {
     return <p>REST Occupation Data is loading...</p>;
   }
+
   // const {
   //   _id,
   //   title,

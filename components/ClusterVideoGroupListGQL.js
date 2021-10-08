@@ -32,8 +32,23 @@ export default function ClusterVideoGroupListGQL({ clusterCode }) {
   if (error) return <DisplayError error />;
 
   const { title, occupations } = data.cluster;
-
   const accordionToggleText = active ? 'Close' : 'Open';
+
+  let sorted = [];
+  occupations.forEach((occupation) => sorted.push(occupation));
+
+  sorted = sorted.sort(function (a, b) {
+    const titleA = a.title.toUpperCase();
+    const titleB = b.title.toUpperCase();
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+    return 0;
+  });
+
   // const faCaret = active
   //   ? '{font-size: 48px; color: #16a085; transform: translateY(-25%);}'
   //   : '{font-size: 48px; color: #16a085;}';
@@ -57,16 +72,12 @@ export default function ClusterVideoGroupListGQL({ clusterCode }) {
         >
           <div className="list-items">
             {active
-              ? occupations.map((occ, i) => {
-                  if (!onets.includes(occ.code)) {
+              ? sorted.map((occ, i) => {
+                  if (occ.videocode === '') {
                     console.log(
-                      'skipped: ',
-                      occ,
-                      'from Cluster: ',
-                      clusterCode
+                      `${occ.code} - ${occ.title} has no videocode. Cluster: [${clusterCode}]`
                     );
                   } else {
-                    // console.log(occ);
                     return (
                       <p key={i} id={`${i}-${occ.code}`}>
                         <a href={`/career/video/${occ.code}`}>{occ.title}</a>

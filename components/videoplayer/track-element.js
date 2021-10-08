@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { En, Es } from './caption-params';
 import { server } from '../../config';
 
@@ -49,3 +50,9 @@ class Track extends React.Component {
 }
 
 export default Track;
+Track.propTypes = {
+  default: PropTypes.bool,
+  english: PropTypes.any,
+  spanish: PropTypes.any,
+  onet: PropTypes.string,
+};
