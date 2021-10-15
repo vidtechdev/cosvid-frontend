@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import { onets } from '../data/onetsmapped';
+// import { onets } from '../data/onetsmapped';
 import VideoGroupListStyles from './styles/VideoGroupListStyles';
 // import ImageBlockStyles from './styles/ImageBlockStyles';
 import DisplayError from './ErrorMessage';
+import sortThis from '../util/sortThis';
 
 // GraphQL Querys
 const CLUSTER_DATA = gql`
@@ -28,26 +29,14 @@ export default function ClusterVideoGroupListGQL({ clusterCode }) {
     },
   });
 
-  if (loading) return <p>Getting cluster data.</p>;
   if (error) return <DisplayError error />;
-
+  if (loading) {
+    // console.log('getting cluster videos');
+    return null;
+  }
   const { title, occupations } = data.cluster;
+  const sorted = sortThis(occupations);
   const accordionToggleText = active ? 'Close' : 'Open';
-
-  let sorted = [];
-  occupations.forEach((occupation) => sorted.push(occupation));
-
-  sorted = sorted.sort(function (a, b) {
-    const titleA = a.title.toUpperCase();
-    const titleB = b.title.toUpperCase();
-    if (titleA < titleB) {
-      return -1;
-    }
-    if (titleA > titleB) {
-      return 1;
-    }
-    return 0;
-  });
 
   // const faCaret = active
   //   ? '{font-size: 48px; color: #16a085; transform: translateY(-25%);}'

@@ -5,6 +5,16 @@ const VideoGroupListStyles = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   margin: 1rem 0px;
+  /* background-color: var(--grayblue); */
+  /* align-content: center; */
+  .loading {
+    /* display: grid;
+    grid-template-columns: auto; */
+    background: var(--grayblue);
+    height: 40px;
+    width: auto;
+    padding: 1rem;
+  }
   .title {
     display: grid;
     grid-template-columns: auto;
