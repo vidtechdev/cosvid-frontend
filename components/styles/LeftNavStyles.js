@@ -6,17 +6,18 @@ const LeftNavStyles = styled.nav`
 
   grid-auto-columns: 1fr;
   grid-auto-flow: row;
-  max-height: 400px;
+  max-height: 350px;
   font-size: 1rem;
   padding: 1.7rem 1.3rem;
   gap: 0.5rem;
 
   a {
+    display: grid;
     background: #fff;
     color: var(--aqua);
     padding: 0.5rem 1rem 0.5rem 1rem;
     text-decoration: none;
-    /* height: 2rem; */
+    align-content: center;
 
     :hover {
       background: var(--aqua);
