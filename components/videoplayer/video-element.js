@@ -17,6 +17,11 @@ export default function VideoElement(props) {
     poster = `${server}/stream/poster/tutorial/`;
   }
 
+  if (type === 'skill-and-ability') {
+    src = `${server}/stream/video/skill-and-ability/`;
+    poster = `${server}/stream/poster/skill-and-ability/`;
+  }
+
   return (
     <video
       className="video"
